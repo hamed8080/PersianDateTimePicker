@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parentEstimateDate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/paddingAllLayout"
+    android:layout_marginRight="@dimen/paddingAllLayout"
+    android:layout_marginTop="@dimen/paddingAllLayout"
+    android:fillViewport="true"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/txtSelectedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txtTitle"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:id="@+id/layoutDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtSelectedDate"
+        android:layout_marginTop="@dimen/paddingAllLayout"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="5dip"
+            android:layout_marginRight="5dip"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtYearHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="سال"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/npmYear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:np_dividerColor="@color/redLight"
+                app:np_selectedTextColor="@color/colorPrimary"
+                app:np_selectedTextSize="20sp"
+                app:np_textColor="@color/loadingTransparentBlueColor"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                app:np_textSize="16sp"
+                app:np_wrapSelectorWheel="false" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dip"
+            android:layout_marginRight="5dip"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtMonthHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="ماه"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/npmMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:np_dividerColor="@color/redLight"
+                app:np_max="12"
+                app:np_min="1"
+                app:np_selectedTextColor="@color/colorPrimary"
+                app:np_selectedTextSize="20sp"
+                app:np_textColor="@color/loadingTransparentBlueColor"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                app:np_textSize="16sp"
+                app:np_wrapSelectorWheel="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtDayHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="روز"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/npmDay"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:np_dividerColor="@color/redLight"
+                app:np_max="31"
+                app:np_min="1"
+                app:np_selectedTextColor="@color/colorPrimary"
+                app:np_selectedTextSize="20sp"
+                app:np_textColor="@color/loadingTransparentBlueColor"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                app:np_textSize="16sp"
+                app:np_wrapSelectorWheel="false" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutClock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutDate"
+        android:layout_marginTop="@dimen/paddingAllLayout"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtHourHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/npmHour"
+            android:layout_alignLeft="@+id/npmHour"
+            android:layout_alignRight="@+id/npmHour"
+            android:layout_alignStart="@+id/npmHour"
+            android:gravity="center"
+            android:text="ساعت"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/npmHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtHourHint"
+            app:np_dividerColor="@color/redLight"
+            app:np_max="23"
+            app:np_min="0"
+            app:np_selectedTextColor="@color/colorPrimary"
+            app:np_selectedTextSize="20sp"
+            app:np_textColor="@color/loadingTransparentBlueColor"
+            app:np_textSize="16sp"
+            app:np_wrapSelectorWheel="false" />
+
+        <TextView
+            android:id="@+id/txtMinutesHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/npmMinute"
+            android:layout_alignLeft="@+id/npmMinute"
+            android:layout_alignRight="@+id/npmMinute"
+            android:layout_alignStart="@+id/npmMinute"
+            android:layout_toEndOf="@+id/npmHour"
+            android:layout_toRightOf="@+id/npmHour"
+            android:gravity="center"
+            android:text="دقیقه"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/npmMinute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtMinutesHint"
+            android:layout_marginLeft="@dimen/paddingAllLayout"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_toEndOf="@+id/npmHour"
+            android:layout_toRightOf="@+id/npmHour"
+            app:np_dividerColor="@color/redLight"
+            app:np_max="59"
+            app:np_min="0"
+            app:np_selectedTextColor="@color/colorPrimary"
+            app:np_selectedTextSize="20sp"
+            app:np_textColor="@color/loadingTransparentBlueColor"
+            app:np_textSize="16sp"
+            app:np_wrapSelectorWheel="false" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+

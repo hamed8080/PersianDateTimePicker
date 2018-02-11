@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SimpleDarkButton" parent="android:Widget.Button">
+        <item name="android:textColor">@color/txtWhiteLight</item>
+        <item name="android:background">@drawable/black_btn</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dip</item>
+        <item name="android:textSize">@dimen/simpleTextViewSize</item>
+    </style>
+
+    <style name="SimpleButton" parent="android:Widget.Button">
+        <item name="android:textColor">@color/txtWhiteLight</item>
+        <item name="android:background">@color/darkTransparent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dip</item>
+        <item name="android:textSize">@dimen/simpleTextViewSize</item>
+        <item name="android:elevation">1dip</item>
+        <item name="android:translationZ">5dip</item>
+        <item name="android:layout_marginRight">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginLeft">@dimen/paddingAllLayout</item>
+    </style>
+
+
+</resources>

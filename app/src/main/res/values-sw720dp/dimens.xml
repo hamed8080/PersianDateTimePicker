@@ -1,0 +1,27 @@
+<resources>
+    <!-- pixel c  -->
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="paddingAllLayoutHalf">2.5dip</dimen>
+    <dimen name="paddingAllLayout">15dip</dimen>
+    <dimen name="paddingAllLayoutPlusSevenBar">18dip</dimen>
+    <dimen name="paddingAllLayout2X">30dip</dimen>
+    <dimen name="paddingAllLayout3X">45dip</dimen>
+
+    <dimen name="paddingLayout">20dip</dimen>
+
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="simpleTextViewSizeSmall">20sp</dimen>
+    <dimen name="simpleTextViewSize">22sp</dimen>
+    <dimen name="HeadingTextViewSize">26sp</dimen>
+    <dimen name="marginTop">5dip</dimen>
+    <dimen name="marginBottom">5dip</dimen>
+    <dimen name="heightOfCircleButton">150dip</dimen>
+    <dimen name="TextSizeCircleButton">22sp</dimen>
+    <dimen name="btnHeight">48dip</dimen>
+    <dimen name="imageBrandLogoSize">160dip</dimen>
+    <dimen name="heightOfImageViewCamera">200dip</dimen>
+    <dimen name="ParentMainBtHeight">250dip</dimen>
+    <dimen name="LargeSplashTitle">48dip</dimen>
+    <dimen name="MediumSplashTitle">48dip</dimen>
+
+</resources>

@@ -1,0 +1,36 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="paddingAllLayoutHalf">2.5dip</dimen>
+    <dimen name="paddingAllLayout">10dip</dimen>
+    <dimen name="paddingAllLayoutPlusSevenBar">13dip</dimen>
+    <dimen name="paddingAllLayout2X">20dip</dimen>
+    <dimen name="paddingAllLayout3X">30dip</dimen>
+    <dimen name="paddingLayout">5dip</dimen>
+
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="simpleTextViewSizeSmall">12sp</dimen>
+    <dimen name="simpleTextViewSize">14sp</dimen>
+    <dimen name="HeadingTextViewSize">15sp</dimen>
+    <dimen name="marginTop">2dip</dimen>
+    <dimen name="marginBottom">2dip</dimen>
+
+    <dimen name="sevenBarMarginTop">96dip</dimen>
+    <dimen name="BlackSevenBarMargin">99dip</dimen>
+    <dimen name="activityBelowBlackMargin">109dip</dimen>
+
+
+    <dimen name="ParentMainBtHeight">250dip</dimen>
+
+
+    <dimen name="heightOfCircleButton">?actionBarSize</dimen>
+    <dimen name="TextSizeCircleButton">12sp</dimen>
+    <dimen name="heightOfImageViewCamera">96dip</dimen>
+    <dimen name="LargeSplashTitle">48dip</dimen>
+    <dimen name="MediumSplashTitle">48dip</dimen>
+
+    <dimen name="imageBrandLogoSize">128dip</dimen>
+
+    <dimen name="btnHeight">12dip</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

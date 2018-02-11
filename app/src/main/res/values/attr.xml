@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CDateTime">
+        <attr name="title" format="string" />
+        <attr name="isBirthDate" format="boolean" />
+        <attr name="hideTime" format="boolean" />
+        <attr name="hideDate" format="boolean" />
+        <attr name="typeFaceText" format="string" />
+        <attr name="typeFaceIcon" format="string" />
+    </declare-styleable>
+</resources>

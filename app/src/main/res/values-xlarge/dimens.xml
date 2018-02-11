@@ -1,0 +1,29 @@
+<resources>
+    <!-- Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="paddingAllLayoutHalf">2.5dip</dimen>
+    <dimen name="paddingAllLayout">20dip</dimen>
+    <dimen name="paddingAllLayoutPlusSevenBar">23dip</dimen>
+    <dimen name="paddingAllLayout2X">40dip</dimen>
+    <dimen name="paddingAllLayout3X">60dip</dimen>
+
+    <dimen name="paddingLayout">20dip</dimen>
+
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="simpleTextViewSizeSmall">20sp</dimen>
+    <dimen name="simpleTextViewSize">14sp</dimen>
+    <dimen name="HeadingTextViewSize">14sp</dimen>
+    <dimen name="marginTop">5dip</dimen>
+    <dimen name="marginBottom">5dip</dimen>
+    <dimen name="heightOfCircleButton">?actionBarSize</dimen>
+    <dimen name="TextSizeCircleButton">18sp</dimen>
+    <dimen name="imageBrandLogoSize">256dip</dimen>
+    <dimen name="heightOfImageViewCamera">120dip</dimen>
+    <dimen name="ParentMainBtHeight">250dip</dimen>
+    <dimen name="LargeSplashTitle">48dip</dimen>
+    <dimen name="MediumSplashTitle">48dip</dimen>
+
+    <dimen name="btnHeight">24dip</dimen>
+</resources>
