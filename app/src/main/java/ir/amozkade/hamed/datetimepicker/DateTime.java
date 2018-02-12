@@ -3,7 +3,9 @@ package ir.amozkade.hamed.datetimepicker;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -11,6 +13,7 @@ import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -71,7 +74,6 @@ public class DateTime extends LinearLayout {
             ta.recycle();
         }
     }
-
     public void initialize(Context context) {
         if (typeFaceIconFileName != null) {
             iconTypeFace = Typeface.createFromAsset(context.getAssets(), typeFaceIconFileName);
@@ -89,7 +91,17 @@ public class DateTime extends LinearLayout {
         txtTitle = (TextView) view.findViewById(R.id.txtTitle);
         txtTime = (TextView) view.findViewById(R.id.txtTime);
         txtTimeIC = (TextView) view.findViewById(R.id.txtTimeIC);
-
+        view.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() ==MotionEvent.ACTION_MASK) {
+                    view.setAlpha(.3f);
+                }else {
+                    view.setAlpha(1f);
+                }
+                return false;
+            }
+        });
 
         if (hideTime) {
             hideTime();
@@ -226,7 +238,7 @@ public class DateTime extends LinearLayout {
         dateTime.setTitle(title);
         dateTime.setTime(timeString);
         dateTime.setDate(dateString);
-        if(isBirthDate){
+        if (isBirthDate) {
             dateTime.setBirthDate();
         }
 
