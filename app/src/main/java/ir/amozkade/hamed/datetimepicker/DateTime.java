@@ -27,7 +27,7 @@ import static android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE;
  * Created by hamed
  */
 
-public class DateTime extends LinearLayout {
+public class DateTime extends LinearLayout implements View.OnTouchListener {
     SpannableStringBuilder spanTitle, spanDateIC, spanDate, spanTimeIC, spanTime;
     TextView txtDateIC, txtDate, txtTitle, txtTime, txtTimeIC;
     int year, month, day, hour, minute;
@@ -91,17 +91,7 @@ public class DateTime extends LinearLayout {
         txtTitle = (TextView) view.findViewById(R.id.txtTitle);
         txtTime = (TextView) view.findViewById(R.id.txtTime);
         txtTimeIC = (TextView) view.findViewById(R.id.txtTimeIC);
-        view.setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() ==MotionEvent.ACTION_MASK) {
-                    view.setAlpha(.3f);
-                }else {
-                    view.setAlpha(1f);
-                }
-                return false;
-            }
-        });
+        view.setOnTouchListener(this);
 
         if (hideTime) {
             hideTime();
@@ -228,6 +218,9 @@ public class DateTime extends LinearLayout {
         btnToday.setTypeface(textTypeFace);
         btnNegative.setTypeface(textTypeFace);
         btnPositive.setTypeface(textTypeFace);
+        btnPositive.setOnTouchListener(this);
+        btnNegative.setOnTouchListener(this);
+        btnToday.setOnTouchListener(this);
 
         dateTime = (DateTimeNumberPicker) dialogViewStatement.findViewById(R.id.dateTime);
         dialog.setView(dialogViewStatement);
@@ -293,5 +286,15 @@ public class DateTime extends LinearLayout {
     public void showDate() {
         txtDate.setVisibility(VISIBLE);
         txtDateIC.setVisibility(VISIBLE);
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() ==MotionEvent.ACTION_MASK || event.getAction() ==MotionEvent.ACTION_HOVER_MOVE) {
+            view.setAlpha(.3f);
+        }else {
+            view.setAlpha(1f);
+        }
+        return false;
     }
 }

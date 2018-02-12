@@ -1,8 +1,10 @@
 package ir.amozkade.hamed.datetimepicker;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -86,10 +88,10 @@ public class DateTimeNumberPicker extends RelativeLayout implements NumberPicker
                     npmDay.setMaxValue(31);
                 }
                 if (newVal == 12) {
-                    if(!increasedYear){
+                    if (!increasedYear) {
                         npmYear.setMaxValue(npmYear.getMaxValue() + 1);
                         npmYear.setWrapSelectorWheel(false);
-                        increasedYear=true;
+                        increasedYear = true;
                     }
 
                 }
