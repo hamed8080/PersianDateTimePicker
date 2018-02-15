@@ -297,4 +297,31 @@ public class DateTime extends LinearLayout implements View.OnTouchListener {
         }
         return false;
     }
+    public  String getDate(){
+        String tempYear =String.valueOf(year);
+        if (year <= 9) {
+            tempYear = "0" + year;
+        }
+        String tempMonth = String.valueOf(month);
+        if (month <= 9) {
+            tempMonth = "0" +month;
+        }
+        String tempDay = String.valueOf(day);
+        if (day <= 9) {
+            tempDay = "0" +day;
+        }
+        return   tempYear + "/" + tempMonth + "/" + tempDay;
+    }
+
+    public  String getTime(){
+        String tempHour =String.valueOf(hour);
+        if (hour <= 9) {
+            tempHour = "0" + hour;
+        }
+        String tempMinute = String.valueOf(minute);
+        if (minute <= 9) {
+            tempMinute = "0" +minute;
+        }
+        return tempHour + ":" + tempMinute;
+    }
 }

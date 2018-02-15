@@ -2,6 +2,7 @@ package ir.amozkade.hamed.datetimepicker;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import ir.amozkade.hamed.datetimepickerlib.DateTime;
 
@@ -15,5 +16,11 @@ public class TestActivity extends AppCompatActivity {
         dtTest.setDate("96/11/30");
         dtTest.setTime("19:42");
         dtTest.setText();
+
+    }
+
+    public void click(View view) {
+        dtTest.getDate();
+        dtTest.getTime();
     }
 }
