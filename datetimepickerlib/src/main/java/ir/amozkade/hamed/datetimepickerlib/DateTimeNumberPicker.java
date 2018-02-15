@@ -156,12 +156,6 @@ public class DateTimeNumberPicker extends RelativeLayout implements NumberPicker
         return String.valueOf(npmYear.getValue()).substring(2, 4);
     }
 
-    private void errorMessage(String s, EditText editText) {
-        editText.setError(s);
-        Toast.makeText(context, s, Toast.LENGTH_LONG).show();
-    }
-
-
     public void setDate(String date) {
         if (!date.equals("")) {
             String[] listDate = date.split("/");

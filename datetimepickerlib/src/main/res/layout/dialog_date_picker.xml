@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/txtWhiteLight"
     android:padding="@dimen/paddingAllLayout">
 
 
@@ -29,10 +31,13 @@
             android:layout_weight="1"
             android:background="@color/darkTransparent"
             android:text="انصراف"
+            tools:ignore="HardcodedText"
+            style="?android:buttonBarButtonStyle"
             android:textColor="@color/txtWhiteLight" />
 
         <Button
             android:id="@+id/btnPositive"
+            style="?android:buttonBarButtonStyle"
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dip"
@@ -40,10 +45,14 @@
             android:layout_weight="1"
             android:background="@color/darkTransparent"
             android:text="تایید"
-            android:textColor="@color/txtWhiteLight" />
+            android:textColor="@color/txtWhiteLight"
+            tools:ignore="HardcodedText" />
+
         <Button
             android:id="@+id/btnToday"
             android:layout_width="0dip"
+            tools:ignore="HardcodedText"
+            style="?android:buttonBarButtonStyle"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dip"
             android:layout_marginStart="5dip"

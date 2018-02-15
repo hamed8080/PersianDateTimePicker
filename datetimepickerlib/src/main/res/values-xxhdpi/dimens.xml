@@ -1,27 +1,10 @@
 <resources>
     <!--1920*1080 mobile nexus 5 ,...-->
-    <dimen name="activity_horizontal_margin">20dp</dimen>
-    <dimen name="paddingAllLayoutHalf">2.5dip</dimen>
     <dimen name="paddingAllLayout">15dip</dimen>
-    <dimen name="paddingAllLayoutPlusSevenBar">8dip</dimen>
     <dimen name="paddingAllLayout2X">30dip</dimen>
     <dimen name="paddingAllLayout3X">45dip</dimen>
-
     <dimen name="paddingLayout">2dip</dimen>
-
-    <dimen name="activity_vertical_margin">12dp</dimen>
     <dimen name="simpleTextViewSizeSmall">12sp</dimen>
     <dimen name="simpleTextViewSize">13sp</dimen>
     <dimen name="HeadingTextViewSize">14sp</dimen>
-    <dimen name="marginTop">2dip</dimen>
-    <dimen name="marginBottom">2dip</dimen>
-    <dimen name="heightOfCircleButton">?actionBarSize</dimen>
-    <dimen name="TextSizeCircleButton">13sp</dimen>
-    <dimen name="imageBrandLogoSize">128dip</dimen>
-    <dimen name="heightOfImageViewCamera">150dip</dimen>
-    <dimen name="ParentMainBtHeight">150dip</dimen>
-    <dimen name="LargeSplashTitle">25sp</dimen>
-    <dimen name="MediumSplashTitle">15sp</dimen>
-
-    <dimen name="btnHeight">32dip</dimen>
 </resources>

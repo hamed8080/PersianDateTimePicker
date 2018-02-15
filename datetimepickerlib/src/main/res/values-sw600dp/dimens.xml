@@ -1,27 +1,10 @@
 <resources>
     <!-- nexus 7 1200*1920- -->
-    <dimen name="activity_horizontal_margin">48dp</dimen>
-    <dimen name="paddingAllLayoutHalf">2.5dip</dimen>
     <dimen name="paddingAllLayout">25dip</dimen>
-    <dimen name="paddingAllLayoutPlusSevenBar">18dip</dimen>
     <dimen name="paddingAllLayout2X">50dip</dimen>
     <dimen name="paddingAllLayout3X">75dip</dimen>
-
     <dimen name="paddingLayout">5dip</dimen>
-
-    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="simpleTextViewSizeSmall">20sp</dimen>
     <dimen name="simpleTextViewSize">18sp</dimen>
     <dimen name="HeadingTextViewSize">18sp</dimen>
-    <dimen name="marginTop">5dip</dimen>
-    <dimen name="marginBottom">5dip</dimen>
-    <dimen name="heightOfCircleButton">?actionBarSize</dimen>
-    <dimen name="TextSizeCircleButton">16sp</dimen>
-    <dimen name="imageBrandLogoSize">128dip</dimen>
-    <dimen name="heightOfImageViewCamera">180dip</dimen>
-    <dimen name="ParentMainBtHeight">250dip</dimen>
-    <dimen name="LargeSplashTitle">36sp</dimen>
-    <dimen name="MediumSplashTitle">26sp</dimen>
-
-    <dimen name="btnHeight">38dip</dimen>
 </resources>

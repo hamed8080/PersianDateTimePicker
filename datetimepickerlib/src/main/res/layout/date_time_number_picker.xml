@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parentEstimateDate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,7 +20,8 @@
         android:layout_alignParentRight="true"
         android:gravity="right"
         android:textColor="@android:color/black"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/txtSelectedDate"
@@ -51,7 +53,8 @@
                 android:gravity="center"
                 android:text="سال"
                 android:textColor="@android:color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
 
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/npmYear"
@@ -82,7 +85,8 @@
                 android:gravity="center"
                 android:text="ماه"
                 android:textColor="@android:color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
 
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/npmMonth"
@@ -113,7 +117,8 @@
                 android:gravity="center"
                 android:text="روز"
                 android:textColor="@android:color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
 
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/npmDay"
@@ -153,7 +158,8 @@
             android:gravity="center"
             android:text="ساعت"
             android:textColor="@android:color/black"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
 
         <com.shawnlin.numberpicker.NumberPicker
             android:id="@+id/npmHour"
@@ -182,7 +188,8 @@
             android:gravity="center"
             android:text="دقیقه"
             android:textColor="@android:color/black"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
 
         <com.shawnlin.numberpicker.NumberPicker
             android:id="@+id/npmMinute"

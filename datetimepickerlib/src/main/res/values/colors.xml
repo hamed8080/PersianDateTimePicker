@@ -1,34 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="shadowTransparentBluePrimary">#3c1b224b</color>
-    <color name="firstGradient">#00375f</color>
-    <color name="middleGradient">#275a8c</color>
-    <color name="secondGradient">#2a88e3</color>
-    <color name="floatingButton">#424242</color>
-
-    <color name="primary">#353535</color>
-    <color name="primaryDark">#2e2e2e</color>
-    <color name="accent">#777272</color>
-    <color name="primaryControlNormal">#bcbcbc</color>
-    <color name="activityTitle">#2492ec</color>
-    <color name="redLight">#d64747</color>
+    <color name="darkTransparent">#e72e2e2e</color>
+    <color name="PriceColor">#318d21</color>
     <color name="txtWhiteLight">#f1f1f1</color>
     <color name="txtWhiteGray">#e9e9e9</color>
     <color name="txtWhiteExtraGray">#afafaf</color>
-    <color name="btnClearEditText">#76afafaf</color>
-    <color name="ediTextNotFilled">#64b1b4</color>
-    <color name="dividerColor">#8c8c8c</color>
-    <color name="darkTransparent">#e72e2e2e</color>
-    <color name="actionBar">#050505</color>
-    <color name="tabLayout">#050505</color>
-    <color name="bottomNavigationBar">#31ace3</color>
-    <color name="blackBtn">#333333</color>
-    <color name="blackBtnShadow">#e72914</color>
-    <color name="blackBtnTextColor">#ff9400</color>
-    <color name="WaitColor">#a29628</color>
-    <color name="transparentActionDownAnim">#c7797979</color>
+    <color name="redLight">#d64747</color>
+    <color name="colorPrimary">#3F51B5</color>
     <color name="loadingTransparentBlueColor">#cc2890d1</color>
-    <color name="leftDividerLayout">#190d46</color>
-    <color name="PriceColor">#318d21</color>
 </resources>

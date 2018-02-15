@@ -33,7 +33,8 @@ public class DateTime extends LinearLayout implements View.OnTouchListener {
     View view;
     Typeface textTypeFace, iconTypeFace;
     private boolean isBirthDate, hideTime, hideDate;
-    private String typeFaceTextFileName, typeFaceIconFileName;
+    private String typeFaceTextFileName;
+    private String typeFaceIconFileName="segmdl2.ttf";
     private String dateString, timeString;
     private String title;
 
@@ -67,7 +68,9 @@ public class DateTime extends LinearLayout implements View.OnTouchListener {
             hideTime = ta.getBoolean(R.styleable.CDateTime_hideTime, false);
             hideDate = ta.getBoolean(R.styleable.CDateTime_hideDate, false);
             typeFaceTextFileName = ta.getString(R.styleable.CDateTime_typeFaceText);
-            typeFaceIconFileName = ta.getString(R.styleable.CDateTime_typeFaceIcon);
+            if(ta.getString(R.styleable.CDateTime_typeFaceIcon)!=null && !ta.getString(R.styleable.CDateTime_typeFaceIcon).equals("")){
+               typeFaceIconFileName =  ta.getString(R.styleable.CDateTime_typeFaceIcon);
+            }
         } finally {
             ta.recycle();
         }
