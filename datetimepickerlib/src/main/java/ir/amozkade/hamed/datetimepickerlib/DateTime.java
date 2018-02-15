@@ -1,11 +1,9 @@
-package ir.amozkade.hamed.datetimepicker;
+package ir.amozkade.hamed.datetimepickerlib;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Point;
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -81,7 +79,6 @@ public class DateTime extends LinearLayout implements View.OnTouchListener {
         if (typeFaceTextFileName != null) {
             textTypeFace = Typeface.createFromAsset(context.getAssets(), typeFaceTextFileName);
         }
-
 
         view = LayoutInflater.from(context).inflate(R.layout.date_time, null);
         LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);

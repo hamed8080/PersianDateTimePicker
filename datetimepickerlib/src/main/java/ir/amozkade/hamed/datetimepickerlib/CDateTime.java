@@ -1,4 +1,4 @@
-package ir.amozkade.hamed.datetimepicker;
+package ir.amozkade.hamed.datetimepickerlib;
 
 import saman.zamani.persiandate.PersianDate;
 import saman.zamani.persiandate.PersianDateFormat;

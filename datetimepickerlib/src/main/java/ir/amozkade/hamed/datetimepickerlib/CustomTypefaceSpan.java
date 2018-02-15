@@ -1,4 +1,4 @@
-package ir.amozkade.hamed.datetimepicker;
+package ir.amozkade.hamed.datetimepickerlib;
 import android.annotation.SuppressLint;
 import android.graphics.Paint;
 import android.graphics.Typeface;

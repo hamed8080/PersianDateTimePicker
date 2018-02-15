@@ -1,10 +1,8 @@
-package ir.amozkade.hamed.datetimepicker;
+package ir.amozkade.hamed.datetimepickerlib;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -25,7 +23,7 @@ import com.shawnlin.numberpicker.NumberPicker;
 public class DateTimeNumberPicker extends RelativeLayout implements NumberPicker.OnValueChangeListener {
     Context context;
     View view;
-    com.shawnlin.numberpicker.NumberPicker npmYear, npmMonth, npmDay, npmHour, npmMinute;
+    NumberPicker npmYear, npmMonth, npmDay, npmHour, npmMinute;
     TextView txtYearHint, txtMonthHint, txtDayHint, txtHourHint, txtMinutesHint;
     TextView txtTitle, txtSelectedDate;
     public boolean hideDate = false;
@@ -69,14 +67,14 @@ public class DateTimeNumberPicker extends RelativeLayout implements NumberPicker
         view = LayoutInflater.from(context).inflate(R.layout.date_time_number_picker, null);
         txtTitle = (TextView) view.findViewById(R.id.txtTitle);
         txtSelectedDate = (TextView) view.findViewById(R.id.txtSelectedDate);
-        npmYear = (com.shawnlin.numberpicker.NumberPicker) view.findViewById(R.id.npmYear);
+        npmYear = (NumberPicker) view.findViewById(R.id.npmYear);
         npmYear.setOnValueChangedListener(this);
-        npmMonth = (com.shawnlin.numberpicker.NumberPicker) view.findViewById(R.id.npmMonth);
-        npmDay = (com.shawnlin.numberpicker.NumberPicker) view.findViewById(R.id.npmDay);
+        npmMonth = (NumberPicker) view.findViewById(R.id.npmMonth);
+        npmDay = (NumberPicker) view.findViewById(R.id.npmDay);
         npmDay.setOnValueChangedListener(this);
-        npmHour = (com.shawnlin.numberpicker.NumberPicker) view.findViewById(R.id.npmHour);
+        npmHour = (NumberPicker) view.findViewById(R.id.npmHour);
         npmHour.setOnValueChangedListener(this);
-        npmMinute = (com.shawnlin.numberpicker.NumberPicker) view.findViewById(R.id.npmMinute);
+        npmMinute = (NumberPicker) view.findViewById(R.id.npmMinute);
         npmMinute.setOnValueChangedListener(this);
 
         npmMonth.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {

@@ -1,4 +1,4 @@
-package ir.amozkade.hamed.datetimepicker;
+package ir.amozkade.hamed.datetimepickerlib;
 
 /**
  * Created by hamed on 12/4/17

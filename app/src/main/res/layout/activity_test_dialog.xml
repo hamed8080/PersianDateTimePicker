@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ir.amozkade.hamed.datetimepicker.TestActivity">
-<ir.amozkade.hamed.datetimepicker.DateTime
+
+<ir.amozkade.hamed.datetimepickerlib.DateTime
     android:id="@+id/dtTest"
     android:layout_width="match_parent"
     android:layout_centerInParent="true"
@@ -15,5 +16,5 @@
     app:typeFaceIcon="segmdl2.ttf"
     app:typeFaceText="iran_sans.ttf"
   >
-</ir.amozkade.hamed.datetimepicker.DateTime>
+</ir.amozkade.hamed.datetimepickerlib.DateTime>
 </RelativeLayout>

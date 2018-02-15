@@ -3,6 +3,8 @@ package ir.amozkade.hamed.datetimepicker;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import ir.amozkade.hamed.datetimepickerlib.DateTime;
+
 public class TestActivity extends AppCompatActivity {
     DateTime dtTest ;
     @Override

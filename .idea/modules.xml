@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DateTimePicker.iml" filepath="$PROJECT_DIR$/DateTimePicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datetimepickerlib/datetimepickerlib.iml" filepath="$PROJECT_DIR$/datetimepickerlib/datetimepickerlib.iml" />
     </modules>
   </component>
 </project>
