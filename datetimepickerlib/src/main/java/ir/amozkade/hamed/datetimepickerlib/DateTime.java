@@ -34,7 +34,7 @@ public class DateTime extends LinearLayout implements View.OnTouchListener {
     Typeface textTypeFace, iconTypeFace;
     private boolean isBirthDate, hideTime, hideDate;
     private String typeFaceTextFileName;
-    private String typeFaceIconFileName="segmdl2.ttf";
+    private String typeFaceIconFileName = "segmdl2.ttf";
     private String dateString, timeString;
     private String title;
 
@@ -68,13 +68,14 @@ public class DateTime extends LinearLayout implements View.OnTouchListener {
             hideTime = ta.getBoolean(R.styleable.CDateTime_hideTime, false);
             hideDate = ta.getBoolean(R.styleable.CDateTime_hideDate, false);
             typeFaceTextFileName = ta.getString(R.styleable.CDateTime_typeFaceText);
-            if(ta.getString(R.styleable.CDateTime_typeFaceIcon)!=null && !ta.getString(R.styleable.CDateTime_typeFaceIcon).equals("")){
-               typeFaceIconFileName =  ta.getString(R.styleable.CDateTime_typeFaceIcon);
+            if (ta.getString(R.styleable.CDateTime_typeFaceIcon) != null && !ta.getString(R.styleable.CDateTime_typeFaceIcon).equals("")) {
+                typeFaceIconFileName = ta.getString(R.styleable.CDateTime_typeFaceIcon);
             }
         } finally {
             ta.recycle();
         }
     }
+
     public void initialize(Context context) {
         if (typeFaceIconFileName != null) {
             iconTypeFace = Typeface.createFromAsset(context.getAssets(), typeFaceIconFileName);
@@ -192,15 +193,17 @@ public class DateTime extends LinearLayout implements View.OnTouchListener {
 
     public void setText() {
         if (spanDate != null && spanTime != null) {
-
             view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     openDialogDateTimePicker();
                 }
             });
+        }else {
+                setDefaultDate();
+                setDefaultTime();
+                setText();
         }
-
     }
 
     private void openDialogDateTimePicker() {
@@ -290,38 +293,49 @@ public class DateTime extends LinearLayout implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View view, MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() ==MotionEvent.ACTION_MASK || event.getAction() ==MotionEvent.ACTION_HOVER_MOVE) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MASK || event.getAction() == MotionEvent.ACTION_HOVER_MOVE) {
             view.setAlpha(.3f);
-        }else {
+        } else {
             view.setAlpha(1f);
         }
         return false;
     }
-    public  String getDate(){
-        String tempYear =String.valueOf(year);
+
+    public String getDate() {
+        String tempYear = String.valueOf(year);
         if (year <= 9) {
             tempYear = "0" + year;
         }
         String tempMonth = String.valueOf(month);
         if (month <= 9) {
-            tempMonth = "0" +month;
+            tempMonth = "0" + month;
         }
         String tempDay = String.valueOf(day);
         if (day <= 9) {
-            tempDay = "0" +day;
+            tempDay = "0" + day;
         }
-        return   tempYear + "/" + tempMonth + "/" + tempDay;
+        return tempYear + "/" + tempMonth + "/" + tempDay;
     }
 
-    public  String getTime(){
-        String tempHour =String.valueOf(hour);
+    public String getTime() {
+        String tempHour = String.valueOf(hour);
         if (hour <= 9) {
             tempHour = "0" + hour;
         }
         String tempMinute = String.valueOf(minute);
         if (minute <= 9) {
-            tempMinute = "0" +minute;
+            tempMinute = "0" + minute;
         }
         return tempHour + ":" + tempMinute;
+    }
+
+    private void setDefaultDate() {
+        dateString = new CDateTime().getCurrentDateTimeObject().date;
+        setDate(dateString);
+    }
+
+    private void setDefaultTime() {
+        timeString = new CDateTime().getCurrentDateTimeObject().time;
+        setTime(timeString);
     }
 }

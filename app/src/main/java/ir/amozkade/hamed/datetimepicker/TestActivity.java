@@ -13,10 +13,9 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_dialog);
         dtTest = (DateTime) findViewById(R.id.dtTest);
-        dtTest.setDate("96/11/30");
-        dtTest.setTime("19:42");
+//        dtTest.setDate("96/11/30");
+//        dtTest.setTime("19:42");
         dtTest.setText();
-
     }
 
     public void click(View view) {
