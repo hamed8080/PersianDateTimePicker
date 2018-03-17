@@ -60,15 +60,15 @@ class DateTime : LinearLayout, View.OnTouchListener {
         get() {
             var tempYear = year.toString()
             if (year <= 9) {
-                tempYear = "0" + year
+                tempYear = "0$year"
             }
             var tempMonth = month.toString()
             if (month <= 9) {
-                tempMonth = "0" + month
+                tempMonth = "0$month"
             }
             var tempDay = day.toString()
             if (day <= 9) {
-                tempDay = "0" + day
+                tempDay = "0$day"
             }
             return "$tempYear/$tempMonth/$tempDay"
         }
@@ -111,13 +111,13 @@ class DateTime : LinearLayout, View.OnTouchListener {
         get() {
             var tempHour = hour.toString()
             if (hour <= 9) {
-                tempHour = "0" + hour
+                tempHour = "0$hour"
             }
             var tempMinute = minute.toString()
             if (minute <= 9) {
-                tempMinute = "0" + minute
+                tempMinute = "0$minute"
             }
-            return tempHour + ":" + tempMinute
+            return "$tempHour:$tempMinute"
         }
         set(time) {
             timeString = time
@@ -136,7 +136,7 @@ class DateTime : LinearLayout, View.OnTouchListener {
                         tempMinute = "0" + Integer.valueOf(listDate[1].trim({ it <= ' ' }))!!
                     }
                     val timeStringIC = "\ue121"
-                    val timeString = tempHour + ":" + tempMinute
+                    val timeString = "$tempHour:$tempMinute"
                     spanTimeIC = SpannableStringBuilder(timeStringIC)
                     spanTime = SpannableStringBuilder(timeString)
                     spanTimeIC?.setSpan(RelativeSizeSpan(1.1f), 0, timeStringIC.length - 1, SPAN_INCLUSIVE_INCLUSIVE)

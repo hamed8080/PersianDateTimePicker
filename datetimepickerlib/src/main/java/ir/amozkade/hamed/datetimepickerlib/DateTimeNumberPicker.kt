@@ -73,7 +73,7 @@ class DateTimeNumberPicker : RelativeLayout, NumberPicker.OnValueChangeListener 
                 return "00:00"
             }
             return if (hour != null && minute != null) {
-                hour + ":" + minute
+                "$hour:$minute"
             } else {
                return null
             }
@@ -225,7 +225,7 @@ class DateTimeNumberPicker : RelativeLayout, NumberPicker.OnValueChangeListener 
                 val hourDisplay = arrayOfNulls<String>(25)
                 for (i in 0..24) {
                     if (i <= 9) {
-                        hourDisplay[i] = ("0" + i).toString()
+                        hourDisplay[i] = ("0$i").toString()
                     } else {
                         hourDisplay[i] = i.toString()
                     }
@@ -237,7 +237,7 @@ class DateTimeNumberPicker : RelativeLayout, NumberPicker.OnValueChangeListener 
                 val minuteDisplay = arrayOfNulls<String>(60)
                 for (i in 0..59) {
                     if (i <= 9) {
-                        minuteDisplay[i] = ("0" + i).toString()
+                        minuteDisplay[i] = ("0$i").toString()
                     } else {
                         minuteDisplay[i] = i.toString()
                     }
