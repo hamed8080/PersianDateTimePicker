@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CDateTime">
+    <declare-styleable name="DateTimeButton">
         <attr name="title" format="string" />
         <attr name="isBirthDate" format="boolean" />
         <attr name="hideTime" format="boolean" />

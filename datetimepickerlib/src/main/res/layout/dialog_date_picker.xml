@@ -1,65 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/txtWhiteLight"
-    android:padding="@dimen/paddingAllLayout">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
-    <ir.amozkade.hamed.datetimepickerlib.DateTimeNumberPicker
-        android:id="@+id/dateTime"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/layoutButtons"
-        android:layout_marginTop="@dimen/paddingAllLayout" />
+        <import type="android.view.View" />
 
-    <LinearLayout
-        android:id="@+id/layoutButtons"
+        <variable
+            name="dialogListener"
+            type="ir.amozkade.hamed.datetimepickerlib.mvvm.view.DateTimeDialogListener" />
+
+        <variable
+            name="typeFace"
+            type="android.graphics.Typeface" />
+
+        <variable
+            name="vm"
+            type="ir.amozkade.hamed.datetimepickerlib.mvvm.viewModel.DateTimeViewModel" />
+
+        <variable
+            name="handler"
+            type="ir.amozkade.hamed.datetimepickerlib.mvvm.view.DateTimeDialog" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/paddingAllLayout"
-        android:orientation="horizontal">
+        android:background="@color/txtWhiteLight"
+        android:padding="@dimen/paddingAllLayout">
 
-        <Button
-            android:id="@+id/btnNegative"
-            android:layout_width="0dip"
+        <RelativeLayout
+            android:id="@+id/parentEstimateDate"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="5dip"
-            android:layout_marginRight="5dip"
-            android:layout_weight="1"
-            android:background="@color/darkTransparent"
-            android:text="انصراف"
-            tools:ignore="HardcodedText"
-            style="?android:buttonBarButtonStyle"
-            android:textColor="@color/txtWhiteLight" />
+            android:layout_above="@+id/layoutButtons"
+            android:layout_marginLeft="@dimen/paddingAllLayout"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:layout_marginRight="@dimen/paddingAllLayout"
+            android:fillViewport="true"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnPositive"
-            style="?android:buttonBarButtonStyle"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dip"
-            android:layout_marginStart="5dip"
-            android:layout_weight="1"
-            android:background="@color/darkTransparent"
-            android:text="تایید"
-            android:textColor="@color/txtWhiteLight"
-            tools:ignore="HardcodedText" />
 
-        <Button
-            android:id="@+id/btnToday"
-            android:layout_width="0dip"
-            tools:ignore="HardcodedText"
-            style="?android:buttonBarButtonStyle"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dip"
-            android:layout_marginStart="5dip"
-            android:layout_weight="1"
-            android:background="#3f9f3d"
-            android:text="امروز"
-            android:textColor="@color/txtWhiteLight" />
+            <TextView
+                android:id="@+id/txtTitle"
+                customTypeFace="@{typeFace}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="@{vm.dateTime.title}"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:typeface="monospace"
+                tools:ignore="RtlHardcoded" />
 
-    </LinearLayout>
-</RelativeLayout>
+            <TextView
+                android:id="@+id/txtSelectedDate"
+                customTypeFace="@{typeFace}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@{vm.dateTime.selectedDateString}"
+                android:textSize="22sp"
+                android:typeface="monospace" />
+
+            <LinearLayout
+                android:id="@+id/layoutDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtSelectedDate"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="5dip"
+                    android:layout_marginRight="5dip"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtYearHint"
+                        customTypeFace="@{typeFace}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="سال"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:typeface="monospace"
+                        android:visibility="@{vm.dateTime.hideDate ? View.GONE : View.VISIBLE}"
+                        tools:ignore="HardcodedText" />
+
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/npmYear"
+                        style="@style/npmStyle"
+                        npMax="@{vm.dateTime.maxYear}"
+                        npMin="@{vm.dateTime.minYear}"
+                        npTypeface="@{typeFace}"
+                        npValue="@{vm.dateTime.year}"
+                        valueChangeListener="@{vm.yearListener}"
+                        android:visibility="@{vm.dateTime.hideDate ? View.GONE : View.VISIBLE}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dip"
+                    android:layout_marginRight="5dip"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtMonthHint"
+                        customTypeFace="@{typeFace}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="ماه"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:typeface="monospace"
+                        android:visibility="@{vm.dateTime.hideDate ? View.GONE : View.VISIBLE}"
+                        tools:ignore="HardcodedText" />
+
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/npmMonth"
+                        style="@style/npmStyle"
+                        displayValues="@{vm.dateTime.monthDisplayValues}"
+                        npMax="@{vm.dateTime.maxMonth}"
+                        npMin="@{vm.dateTime.minMonth}"
+                        npTypeface="@{typeFace}"
+                        npValue="@{vm.dateTime.month}"
+                        valueChangeListener="@{vm.monthListener}"
+                        android:visibility="@{vm.dateTime.hideDate ? View.GONE : View.VISIBLE}" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtDayHint"
+                        customTypeFace="@{typeFace}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="روز"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:typeface="monospace"
+                        android:visibility="@{vm.dateTime.hideDate ? View.GONE : View.VISIBLE}"
+                        tools:ignore="HardcodedText" />
+
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/npmDay"
+                        style="@style/npmStyle"
+                        displayValues="@{vm.dateTime.dayDisplayValues}"
+                        npMax="@{vm.dateTime.maxDay}"
+                        npMin="@{vm.dateTime.minDay}"
+                        npTypeface="@{typeFace}"
+                        npValue="@{vm.dateTime.day}"
+                        valueChangeListener="@{vm.dayListener}"
+                        android:visibility="@{vm.dateTime.hideDate ? View.GONE : View.VISIBLE}" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutClock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layoutDate"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txtHourHint"
+                    customTypeFace="@{typeFace}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/npmHour"
+                    android:layout_alignLeft="@+id/npmHour"
+                    android:layout_alignEnd="@+id/npmHour"
+                    android:layout_alignRight="@+id/npmHour"
+                    android:gravity="center"
+                    android:text="ساعت"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:typeface="monospace"
+                    android:visibility="@{vm.dateTime.hideTime ? View.GONE : View.VISIBLE}"
+                    tools:ignore="HardcodedText" />
+
+                <com.shawnlin.numberpicker.NumberPicker
+                    android:id="@+id/npmHour"
+                    style="@style/npmStyle"
+                    displayValues="@{vm.dateTime.hourDisplayValues}"
+                    npMax="@{vm.dateTime.maxHour}"
+                    npMin="@{vm.dateTime.minHour}"
+                    npTypeface="@{typeFace}"
+                    npValue="@{vm.dateTime.hour}"
+                    valueChangeListener="@{vm.hourListener}"
+                    android:layout_below="@+id/txtHourHint"
+                    android:visibility="@{vm.dateTime.hideTime ? View.GONE : View.VISIBLE}" />
+
+                <TextView
+                    android:id="@+id/txtMinutesHint"
+                    customTypeFace="@{typeFace}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/npmMinute"
+                    android:layout_alignLeft="@+id/npmMinute"
+                    android:layout_alignEnd="@+id/npmMinute"
+                    android:layout_alignRight="@+id/npmMinute"
+                    android:layout_toEndOf="@+id/npmHour"
+                    android:layout_toRightOf="@+id/npmHour"
+                    android:gravity="center"
+                    android:text="دقیقه"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:typeface="monospace"
+                    android:visibility="@{vm.dateTime.hideTime ? View.GONE : View.VISIBLE}"
+                    tools:ignore="HardcodedText" />
+
+                <com.shawnlin.numberpicker.NumberPicker
+                    android:id="@+id/npmMinute"
+                    style="@style/npmStyle"
+                    displayValues="@{vm.dateTime.minuteDisplayValues}"
+                    npMax="@{vm.dateTime.maxMinute}"
+                    npMin="@{vm.dateTime.minMinute}"
+                    npTypeface="@{typeFace}"
+                    npValue="@{vm.dateTime.minute}"
+                    valueChangeListener="@{vm.minuteListener}"
+                    android:layout_below="@+id/txtMinutesHint"
+                    android:layout_toEndOf="@+id/npmHour"
+                    android:layout_toRightOf="@+id/npmHour"
+                    android:visibility="@{vm.dateTime.hideTime ? View.GONE : View.VISIBLE}" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDismiss"
+                style="@style/Widget.MaterialComponents.Button"
+                customTypeFace="@{typeFace}"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="2dip"
+                android:layout_marginRight="2dip"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkTransparent"
+                android:onClick="@{(v)->dialogListener.onDismiss()}"
+                android:text="انصراف"
+                android:textColor="@color/txtWhiteLight"
+                android:typeface="monospace"
+                app:cornerRadius="5dp"
+                tools:ignore="HardcodedText"
+                tools:targetApi="lollipop" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmit"
+                style="@style/Widget.MaterialComponents.Button"
+                customTypeFace="@{typeFace}"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="2dip"
+                android:layout_marginRight="2dip"
+                android:layout_weight="1"
+                android:backgroundTint="@color/darkTransparent"
+                android:onClick="@{(v)->dialogListener.onSubmit()}"
+                android:text="تایید"
+                android:textColor="@color/txtWhiteLight"
+                android:typeface="monospace"
+                app:cornerRadius="5dp"
+                tools:ignore="HardcodedText"
+                tools:targetApi="lollipop" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToday"
+                style="@style/Widget.MaterialComponents.Button"
+                customTypeFace="@{typeFace}"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="2dip"
+                android:layout_marginRight="2dip"
+                android:layout_weight="1"
+                android:backgroundTint="#3f9f3d"
+                android:onClick="@{(v)->vm.dateTime.setToday()}"
+                android:text="امروز"
+                android:textColor="@color/txtWhiteLight"
+                android:typeface="monospace"
+                app:cornerRadius="5dp"
+                tools:ignore="HardcodedText"
+                tools:targetApi="lollipop" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="npmStyle" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginRight">5dip</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:typeface">monospace</item>
+        <item name="np_textSize">16sp</item>
+        <item name="np_textColor">@color/loadingTransparentBlueColor</item>
+        <item name="np_selectedTextSize">20sp</item>
+        <item name="np_selectedTextColor">@color/colorPrimary</item>
+        <item name="np_dividerColor">@color/redLight</item>
+        <item name="np_wrapSelectorWheel">false</item>
+    </style>
+</resources>

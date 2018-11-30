@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="vm"
+            type="ir.amozkade.hamed.datetimepickerlib.mvvm.viewModel.DateTimeButtonViewModel" />
+        <variable
+            name="handler"
+            type="ir.amozkade.hamed.datetimepickerlib.mvvm.view.DateTimeButton" />
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:minHeight="48dip"
+        android:onClick="@{(v)->handler.openDialogDateTimePicker()}"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <TextView
+            android:id="@+id/txtDateIC"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".5"
+            android:gravity="right|center_vertical"
+            android:text="@{vm.dateTimeButton.spanDateIC}"
+            android:textColor="@color/txtWhiteLight"
+            android:visibility="@{handler.dateTime.hideDate ? View.GONE : View.VISIBLE }"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            customTypeFace="@{vm.dateTimeButton.textTypeFace}"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="left|center_vertical"
+            android:paddingStart="@dimen/paddingAllLayout"
+            android:paddingLeft="@dimen/paddingAllLayout"
+            android:text="@{vm.dateTimeButton.spanDate}"
+            android:textColor="@color/txtWhiteLight"
+            android:textSize="12sp"
+            android:visibility="@{handler.dateTime.hideDate ?View.GONE : View.VISIBLE }"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            customTypeFace="@{vm.dateTimeButton.textTypeFace}"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@{vm.dateTimeButton.spanTitle}"
+            android:textColor="@color/txtWhiteLight"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txtTime"
+            customTypeFace="@{vm.dateTimeButton.textTypeFace}"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="right|center_vertical"
+            android:paddingEnd="@dimen/paddingAllLayout"
+            android:paddingRight="@dimen/paddingAllLayout"
+            android:text="@{vm.dateTimeButton.spanTime}"
+            android:textColor="@color/txtWhiteLight"
+            android:textSize="12sp"
+            android:visibility="@{handler.dateTime.hideTime ?View.GONE : View.VISIBLE }"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/txtTimeIC"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".5"
+            android:gravity="left|center_vertical"
+            android:text="@{vm.dateTimeButton.spanTimeIC}"
+            android:textColor="@color/txtWhiteLight"
+            android:textSize="16sp"
+            android:visibility="@{handler.dateTime.hideTime ?View.GONE : View.VISIBLE }"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+</layout>
+
+

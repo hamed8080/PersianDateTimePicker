@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="ir.amozkade.hamed.datetimepicker.TestActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/paddingAllLayout"
+        android:layout_height="match_parent">
+
+        <ir.amozkade.hamed.datetimepickerlib.mvvm.view.DateTimeButton
+            android:id="@+id/dtTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/darkTransparent"
+            android:elevation="1dip"
+            android:gravity="center"
+            android:translationZ="@dimen/paddingAllLayout"
+            app:title="تاریخ تولد"
+            app:typeFaceText="iran_sans.ttf"
+            tools:targetApi="lollipop" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(v)->handler.getDateTaped()}"
+            android:layout_alignParentBottom="true"
+            android:text="getDate" />
+    </RelativeLayout>
+
+</layout>
