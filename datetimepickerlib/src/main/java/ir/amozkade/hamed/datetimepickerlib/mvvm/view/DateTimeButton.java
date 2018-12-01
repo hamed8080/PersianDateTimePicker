@@ -127,4 +127,10 @@ public class DateTimeButton extends ConstraintLayout implements DateTimeDialogLi
         dateTimeButtonViewModel.getDateTimeButton().setupDateTime();
     }
 
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        mBinding.layout.setEnabled(enabled);
+        mBinding.layout.setAlpha(enabled?1f:0.5f);
+    }
 }
