@@ -125,7 +125,7 @@ public class DateTime extends BaseObservable implements Parcelable {
         String[] today = new String[2];
         PersianDate persianDate = new PersianDate();
         PersianDateFormat pFormat = new PersianDateFormat("Y/m/d");
-        String nowDate = pFormat.format(persianDate).substring(2, pFormat.format(persianDate).length());//96/05/20
+        String nowDate = pFormat.format(persianDate);//96/05/20
         String nowTime;// 14:22
         if (persianDate.getHour() <= 9)
             nowTime = "0" + persianDate.getHour() + ":" + (persianDate.getMinute() <= 9 ? "0" + persianDate.getMinute() : persianDate.getMinute());

@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Point;
 import android.graphics.Typeface;
+import android.icu.util.Calendar;
+import android.icu.util.ULocale;
+import android.os.health.TimerStat;
 import android.util.AttributeSet;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -13,12 +16,20 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingUtil;
 import ir.amozkade.hamed.datetimepickerlib.R;
 import ir.amozkade.hamed.datetimepickerlib.databinding.DateTimeButtonBinding;
 import ir.amozkade.hamed.datetimepickerlib.mvvm.model.DateTime;
 import ir.amozkade.hamed.datetimepickerlib.mvvm.viewModel.DateTimeButtonViewModel;
+import saman.zamani.persiandate.PersianDate;
+import saman.zamani.persiandate.PersianDateFormat;
 
 
 public class DateTimeButton extends ConstraintLayout implements DateTimeDialogListener {
@@ -31,6 +42,7 @@ public class DateTimeButton extends ConstraintLayout implements DateTimeDialogLi
     private Typeface textTypeFace, iconTypeFace;
     private String typeFaceIconFileName = "segmdl2.ttf";
     private DateTimeDialog dateTimeDialog;
+    public DateListener listener;
 
 
     public DateTimeButton(Context context) {
@@ -114,6 +126,25 @@ public class DateTimeButton extends ConstraintLayout implements DateTimeDialogLi
     @Override
     public void onSubmit() {
         dateTimeButtonViewModel.getDateTimeButton().setupDateTime();
+        if (listener != null) {
+            PersianDate pd = new PersianDate();
+            PersianDateFormat pdformater1 = new PersianDateFormat("Y/m/d");
+            pdformater1.format(pd);//1396/05/20
+            pd.initJalaliDate(dateTime.getYear(), dateTime.getMonth(), dateTime.getDay(), dateTime.getHour(), dateTime.getMinute(), 0);
+            DateFormat formatter;
+            formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+            // you can change format of date
+            String dateGr = pd.getGrgYear() + "/" + pd.getGrgMonth() + "/" + pd.getGrgDay() + " " + pd.getHour() + ":" + pd.getMinute();
+            Date date = null;
+            try {
+                date = formatter.parse(dateGr);
+                Timestamp timeStampDate = new Timestamp(date.getTime());
+                listener.onDateChange(dateTime.getDate(), dateTime.getTime(), timeStampDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
         onDismiss();
     }
 
@@ -122,8 +153,13 @@ public class DateTimeButton extends ConstraintLayout implements DateTimeDialogLi
     }
 
     public void setDateTime(String date, String time) {
-        dateTime.setDate(date);
-        dateTime.setTime(time);
+        if (date == null && time == null) {
+            dateTime.setDate(dateTime.getToday()[0]);
+            dateTime.setTime(dateTime.getToday()[1]);
+        } else {
+            dateTime.setDate(date);
+            dateTime.setTime(time);
+        }
         dateTimeButtonViewModel.getDateTimeButton().setupDateTime();
     }
 
@@ -131,6 +167,6 @@ public class DateTimeButton extends ConstraintLayout implements DateTimeDialogLi
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
         mBinding.layout.setEnabled(enabled);
-        mBinding.layout.setAlpha(enabled?1f:0.5f);
+        mBinding.layout.setAlpha(enabled ? 1f : 0.5f);
     }
 }
