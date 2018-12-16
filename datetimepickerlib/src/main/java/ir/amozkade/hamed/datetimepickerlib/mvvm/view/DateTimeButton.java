@@ -6,9 +6,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Point;
 import android.graphics.Typeface;
-import android.icu.util.Calendar;
-import android.icu.util.ULocale;
-import android.os.health.TimerStat;
 import android.util.AttributeSet;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -96,6 +93,7 @@ public class DateTimeButton extends ConstraintLayout implements DateTimeDialogLi
         mBinding.layout.setLayoutParams(params);
         dateTimeButtonViewModel = new DateTimeButtonViewModel(dateTime, iconTypeFace, textTypeFace);
         dateTimeButtonViewModel.getDateTimeButton().setTitleTypeSpan(dateTime.getTitle());
+        setDateTime(dateTime.getToday()[0],dateTime.getToday()[1]);//set today
         mBinding.setVm(dateTimeButtonViewModel);
         mBinding.setHandler(this);
         this.addView(mBinding.getRoot());

@@ -359,13 +359,13 @@ public class DateTime extends BaseObservable implements Parcelable {
 
     @Nullable
     public String getYearString() {
-        if(year==null)return null;
+        if (year == null) return null;
         return String.valueOf(year);
     }
 
     @Nullable
     public String getMonthString() {
-        if(month==null)return null;
+        if (month == null) return null;
         if (month < 10) {
             return "0" + month;
         }
@@ -374,7 +374,7 @@ public class DateTime extends BaseObservable implements Parcelable {
 
     @Nullable
     public String getDayString() {
-        if(day==null)return null;
+        if (day == null) return null;
         if (day < 10) {
             return "0" + day;
         }
@@ -401,7 +401,7 @@ public class DateTime extends BaseObservable implements Parcelable {
         try {
             if (getDateString() != null)
                 selectedDateString = String.valueOf(getDateString());
-            if (getTimeString() != null)
+            if (getTimeString() != null && !hideTime)
                 selectedDateString += String.valueOf("\t\t\t" + getTimeString());
         } catch (Exception e) {
             e.printStackTrace();
@@ -436,10 +436,11 @@ public class DateTime extends BaseObservable implements Parcelable {
                 Log.i("TAG", "date must larger than 1300");
                 return;
             }
-
-            minYear = Integer.valueOf(listDate[0]);
             year = Integer.valueOf(listDate[0]);
-            maxYear = Integer.valueOf(listDate[0]);
+            if (!isBirthDate) {
+                minYear = Integer.valueOf(listDate[0]);
+                maxYear = Integer.valueOf(listDate[0]);
+            }
             if (Integer.valueOf(listDate[1]) > 11) {//if we have on 12 month and deliver date is next year adviser can set next year value
                 maxYear = Integer.valueOf(listDate[0]) + 1;
             }
