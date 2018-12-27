@@ -28,9 +28,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
     implementation 'com.github.samanzamani.persiandate:PersianDate:0.1'
     implementation 'com.google.android.material:material:1.1.0-alpha01'
     implementation 'com.shawnlin:number-picker:2.4.6'
